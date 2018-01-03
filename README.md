@@ -4,14 +4,14 @@ Microsoft'un AI alanında tüm geliştiricilere sunmuş olduğu çok fazla ürü
 
 Bu örnek de görüntü işleme konusunda yazılım geliştiricilerin kullanabileceği, özel olarak tanımlatmak isteyeceğiniz nesneleri tanımlayabileceğiniz bir platform.
 
-## LUIS'in çalışma mantığı
+## Custom Vision Services'in çalışma mantığı
 Custom Vision API'ın çalışma mantığı tanınmasını istediğiniz fotoğraflarla sistemi eğiterek, bir tahmin modelinin oluşturulmasını sağlıyor. Daha sonra bu modeli kullanarak test etmek istediğiniz fotoğrafların bu modellere ne kadar yakın olduğunu size dönebiliyor.
 
-Buradaki temel mantık fotoğraflarda benzerlikler üzerinden eğitildiği için tam olarak neyi öğrenmesi gerektiğini sizin verdiğiniz fotoğrafların içeriği ve eklediğiniz ``tag`` belirliyor.
+Buradaki temel mantık fotoğraflarda benzerlikler üzerinden eğitildiği için tam olarak neyi öğrenmesi gerektiğini sizin verdiğiniz fotoğrafların içeriği ve eklediğiniz ``Tag`` belirliyor.
 
 Bir örnek üzerinde inceleyecek olursak Türkiye'ye has çay bardağı, Türk kahvesi ve Su bardaklarının bulunduğu fotoğraflarla sistemi eğiterek, bundan sonra vereceğiniz fotoğrafların içerisinde bu nesneler geçip geçmediğini görebileceksiniz.
 
-## Custom Vision API proje oluşturulması
+## Custom Vision Services projesi oluşturulması
 
 [Microsoft Cognitive Service](http://www.microsoft.com/cognitive) 'in altında yer alan servislerden birisi olan [Custom Vision Services](http://www.customvision.ai) ile Türk kahvesi fincanı, çay ve su bardaklarını görsel olarak ayırt edilebilmesi için bir örnek projeyi oluşturabilmek için aşağıdaki detayları tamamlamamız gerekiyor.
 
@@ -38,7 +38,7 @@ Aşağıdaki kod örneğinde de girdiğiniz bir fotoğraf URL'i aracılığı il
         static async void MakeRequest()
         {
             var client = new HttpClient();
-       
+
             // Request headers
             // Buraya Prediction API Key'inizi girebilirsiniz.
             client.DefaultRequestHeaders.Add("Prediction-key", "YOUR PREDICTION KEY");
@@ -79,13 +79,24 @@ Aşağıdaki kod örneğinde de girdiğiniz bir fotoğraf URL'i aracılığı il
 ...
 ```
 
-
-
 ## Kodun çıktısı
-Girdiğiniz bir örnek fotoğraf linki aracılığı ile sonucu görmek isterseniz de çıktınız aşağıdaki gibi olacaktır.
+
+Girdiğiniz bir örnek fotoğraf linki aracılığı ile sonucu görmek isterseniz de çıktınız aşağıdaki gibi olacaktır. Sonuçlar float sonuçla şekilde geleceği 1'e en yakın olan sonuç oran olarak doğruluğu en yüksek olan sonuç olacaktır.
+
+Örnek olarak daha önce train edilmemiş [https://raw.githubusercontent.com/ikivanc/Custom-Vision-Prediction-Ornegi/master/TrainingData/test_cay.jpeg](https://raw.githubusercontent.com/ikivanc/Custom-Vision-Prediction-Ornegi/master/TrainingData/test_cay.jpeg) linkini kullanabilirsiniz.
 
 ![](screenshots/customvision_result.png)
 
-Bu örnekte de gördüğümüz gibi, çok temel bir şekilde görüntü işleme aracılığı ile tanıtmak isteyeceğimiz nesneleri Custom Vision Services'i kullanarak tanımlayabiliyorsunuz. 
+Bu örnekte de gördüğümüz gibi, çok temel bir şekilde görüntü işleme aracılığı ile tanıtmak isteyeceğimiz nesneleri Custom Vision Services'i kullanarak tanımlayabiliyorsunuz. Bu örnekte olduğu gibi nesneleri tanımlayabilirsiniz.
+
+Sizler de kurumlarınız için gerekli olan çeşitli entegrasyonları da farklı senaryolarda kullanabilirsiniz.
+
+![](screenshots/customvision_output.png)
+
+* Araç marka-model tanıma senaryolarında
+* Uyarı/Logo tanımlama senaryolarında
+* Futbol takımlarımlarının formalarının tanımlanması
+* Ürün kategorilerinin belirlenmesi
+* Döküman kalıbından dökümanın türünün belirlenmesine kadar pek çok konu için bu servisler kullanılabilir.
 
 iyi çalışmalar.
