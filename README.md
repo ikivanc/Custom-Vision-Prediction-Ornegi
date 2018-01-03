@@ -2,16 +2,20 @@
 
 Microsoft'un AI alanında tüm geliştiricilere sunmuş olduğu çok fazla ürün seçenekleri bulunuyor. Bu ürünler arasında hem veri bilimcilerin kullanabileceği hem de yazılım geliştirebileceği yapay zeka tabanlı servisler bulunuyor.
 
-Bu örnek de görüntü işleme konusunda yazılım geliştiricilerin kullanabileceği, özel olarak tanımlatmak isteyeceğiniz nesneleri tanımlayabileceğiniz bir platform.
+Bu örnek de görüntü işleme konusunda yazılım geliştiricilerin kullanabileceği, özel olarak tanımlatmak isteyeceğiniz nesneleri tanımlayabileceğiniz 
+[Microsoft Cognitive Service](http://www.microsoft.com/cognitive) 'in altında yer alan servislerden birisi olan [Custom Vision Services](http://www.customvision.ai) 'ini inceleyeceğiz.
+
+![](screenshots/custom-vision-details.jpg)
+
 
 ## Custom Vision Services'in çalışma mantığı
 Custom Vision API'ın çalışma mantığı tanınmasını istediğiniz fotoğraflarla sistemi eğiterek, bir tahmin modelinin oluşturulmasını sağlıyor. Daha sonra bu modeli kullanarak test etmek istediğiniz fotoğrafların bu modellere ne kadar yakın olduğunu size dönebiliyor.
 
-Buradaki temel mantık fotoğraflarda benzerlikler üzerinden eğitildiği için tam olarak neyi öğrenmesi gerektiğini sizin verdiğiniz fotoğrafların içeriği ve eklediğiniz ``Tag`` belirliyor.
+Buradaki temel mantık fotoğraflarda benzerlikler üzerinden eğitildiği için tam olarak neyi öğrenmesi gerektiğini sizin verdiğiniz fotoğrafların içeriği ve eklediğiniz ``Tag`` ler belirliyor.
 
-Bir örnek üzerinde inceleyecek olursak Türkiye'ye has çay bardağı, Türk kahvesi ve Su bardaklarının bulunduğu fotoğraflarla sistemi eğiterek, bundan sonra vereceğiniz fotoğrafların içerisinde bu nesneler geçip geçmediğini görebileceksiniz.
+Bir örnek üzerinde inceleyecek olursak Türkiye'ye has çay bardağı, Türk kahvesi ve Su bardaklarının bulunduğu fotoğraflarla sistemi eğiterek, bundan sonra vereceğiniz fotoğrafların içerisinde bu nesnelerin bulunup bulunmadığını görebileceksiniz.
 
-## Custom Vision Services projesi oluşturulması
+## Yeni bir Custom Vision Services projesi oluşturulması
 
 [Microsoft Cognitive Service](http://www.microsoft.com/cognitive) 'in altında yer alan servislerden birisi olan [Custom Vision Services](http://www.customvision.ai) ile Türk kahvesi fincanı, çay ve su bardaklarını görsel olarak ayırt edilebilmesi için bir örnek projeyi oluşturabilmek için aşağıdaki detayları tamamlamamız gerekiyor.
 
@@ -30,7 +34,7 @@ Girilen fotoğrafları grup grup girerek fotoğrafların tag'lerini girin. Genel
 
 Fotoğrafları yüklemeyi gerçekleştirip tamamladıktan sonra Sağ üst taraftaki ``Train`` butonuna tıklayarak sisteminizi eğitebilir ve sonrasında da ``Quick Test`` bölümünden uygulamanızın çalışmasını test edebilirsiniz.
 
-## Custom Vision API ile C# kodu ile entegre edilmesi
+## Custom Vision API ile C# kodunun entegre edilmesi
 Aşağıdaki kod örneğinde de girdiğiniz bir fotoğraf URL'i aracılığı ile fotoğrafınızın içeriğini tespit edebilirsiniz. isterseniz de fotoğrafı yükleyerek de test edebilirsiniz.
 
 ```csharp
